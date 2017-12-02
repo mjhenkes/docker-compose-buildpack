@@ -3,29 +3,30 @@
 
 set -e
 
-docker_version=${DOCKER_VERSION:="1.12.3"}
-docker_compose_version=${DOCKER_COMPOSE_VERSION:="1.9.0"}
+# docker_version=${DOCKER_VERSION:="1.12.3"}
+docker_compose_version=${DOCKER_COMPOSE_VERSION:="1.17.0"}
 
 build_dir=$1
 
-function install_docker {
-  echo "Installing Docker ${docker_version}"
+# function install_docker {
+#   echo "Installing Docker ${docker_version}"
 
-  cd "${build_dir}"
+#   cd "${build_dir}"
 
-  curl -O "https://get.docker.com/builds/Linux/x86_64/docker-${docker_version}.tgz"
-  tar -xzf "docker-${docker_version}.tgz"
+#   curl -O "https://get.docker.com/builds/Linux/x86_64/docker-${docker_version}.tgz"
+#   tar -xzf "docker-${docker_version}.tgz"
 
-  "docker/dockerd" &
-}
+#   "docker/dockerd" &
+# }
 
 function install_docker_compose {
   echo "Installing Docker Compose ${docker_compose_version}"
 
   cd "${build_dir}"
 
-  curl -L "https://github.com/docker/compose/releases/download/${docker_compose_version}/docker-compose-$(uname -s)-$(uname -m)"
+  curl -L "https://github.com/docker/compose/releases/download/${docker_compose_version}/docker-compose-`uname -s`-`uname -m` -o /usr/local/bin/docker-compose"
+  chmod +x /usr/local/bin/docker-compose
 }
 
-install_docker
-# install_docker_compose
+# install_docker
+install_docker_compose
