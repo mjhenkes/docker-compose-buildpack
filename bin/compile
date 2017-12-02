@@ -27,6 +27,8 @@ function install_docker_compose {
   # curl -L "https://github.com/docker/compose/releases/download/${docker_compose_version}/docker-compose-$(uname -s)-$(uname -m)"
   # chmod +x "${build_dir}/docker-compose"
 
+  echo ls -al /usr/local/bin
+
   docker-compose build
 }
 
