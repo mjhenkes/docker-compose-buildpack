@@ -28,6 +28,8 @@ function install_docker_compose {
   # chmod +x "${build_dir}/docker-compose"
 
   ls -al /usr/local/bin
+  echo "$USER"
+  pwd
 
   docker-compose build
 }
