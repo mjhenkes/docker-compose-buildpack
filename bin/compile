@@ -30,9 +30,9 @@ function install_docker_compose {
   echo "/usr/local/bin"
   ls -al /usr/local/bin
   echo "ls"
-  ls
+  ls -al
   echo "/"
-  ls
+  ls -al /
   whoami
   echo "$USER"
   u="$USER"
