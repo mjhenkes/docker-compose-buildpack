@@ -29,6 +29,8 @@ function install_docker_compose {
 
   ls -al /usr/local/bin
   echo "$USER"
+  u="$USER"
+  echo "User name $u"
   pwd
 
   docker-compose build
